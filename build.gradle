@@ -20,6 +20,11 @@ allprojects {
         jcenter()
         
     }
+    ext {
+        room_version = '1.1.1'
+        lombok_version = '1.18.8'
+        butterknife_version = '8.0.0'
+    }
 }
 
 task clean(type: Delete) {
