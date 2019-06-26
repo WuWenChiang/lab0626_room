@@ -8,10 +8,12 @@ import android.arch.persistence.room.PrimaryKey;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity(tableName = "Beverage")
+@ToString
 public class BeverageEntity {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name="id")
     private int id;
