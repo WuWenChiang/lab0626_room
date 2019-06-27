@@ -2,3 +2,4 @@
 ## last modified: 26-Jun-2019
 ## DB & Recycler view ready
 ## Add beverage feature complete
+## Implements DeleteAdd action

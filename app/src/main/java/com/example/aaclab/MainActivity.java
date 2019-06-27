@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     @BindView(R.id.addButton)
     Button addButton;
+    @BindView(R.id.delAllButton)
+    Button delAllButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initBeverageAdapter();
         addButton.setOnClickListener(v->addButtonCallback());
+        delAllButton.setOnClickListener(v->delAllButtonCallback());
     }
 
     private static final int ADD_ACTIVITY = 1001;
@@ -37,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private void addButtonCallback() {
         Intent intent = new Intent(this,InserActivity.class);
         startActivityForResult(intent,ADD_ACTIVITY);
+    }
+
+    private void delAllButtonCallback() {
+        mViewModel.deleteAll();
     }
 
     @Override

@@ -27,6 +27,9 @@ public interface BeverageDAO {
     @Delete
     void delete(BeverageEntity beverageEntity);
 
+    @Query("DELETE FROM Beverage")
+    void deleteAll();
+
     @Query("SELECT * FROM Beverage WHERE id = :id")
     BeverageEntity getBeverageEntityById(int id);
 }
