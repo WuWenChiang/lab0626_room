@@ -12,6 +12,7 @@ import java.util.List;
 public class BeverageViewAdapter extends RecyclerView.Adapter<BeverageViewHolder> {
     private final LayoutInflater inflater;
     private List<BeverageEntity> beverages;
+    private View.OnClickListener mOnItemClickListener;
 
     public BeverageViewAdapter(Context context) {
         inflater = LayoutInflater.from(context);
@@ -21,7 +22,7 @@ public class BeverageViewAdapter extends RecyclerView.Adapter<BeverageViewHolder
     @Override
     public BeverageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = inflater.inflate(R.layout.view_item, viewGroup, false);
-        return new BeverageViewHolder(itemView);
+        return new BeverageViewHolder(itemView, mOnItemClickListener); //add second parameter
     }
 
     void setBeverages(List<BeverageEntity> beverages) {
@@ -48,5 +49,9 @@ public class BeverageViewAdapter extends RecyclerView.Adapter<BeverageViewHolder
 
     public BeverageEntity getBeverageAtPosition(int position) {
         return beverages.get(position);
+    }
+
+    public void setmOnItemClickListener(View.OnClickListener itemClickListener) {
+        mOnItemClickListener = itemClickListener;
     }
 }

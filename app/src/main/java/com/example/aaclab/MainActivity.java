@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 .observe(this, beverageEntities -> adapter.setBeverages(beverageEntities));
         // hook delete action
         handleSingleDelete(recyclerView, adapter);
+        // hook modify action
+        handleSingleModify(recyclerView, adapter);
     }
 
     private void handleSingleDelete(RecyclerView recyclerView,
@@ -104,5 +106,14 @@ public class MainActivity extends AppCompatActivity {
         });
         helper.attachToRecyclerView(recyclerView);
 
+    }
+
+    private void handleSingleModify(RecyclerView recyclerView, BeverageViewAdapter adapter) {
+        adapter.setmOnItemClickListener(v -> {
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
+            int position = viewHolder.getAdapterPosition();
+            Toast.makeText(this, String.format("#%d is clicked", position),
+                    Toast.LENGTH_LONG).show();
+        });
     }
 }

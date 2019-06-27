@@ -12,8 +12,13 @@ public class BeverageViewHolder extends RecyclerView.ViewHolder {
     @Getter
     private final TextView textView1;
 
-    public BeverageViewHolder(@NonNull View itemView) {
+    public BeverageViewHolder(@NonNull View itemView,
+                              View.OnClickListener listener) {
         super(itemView);
         textView1 = itemView.findViewById(R.id.textView1);
+        itemView.setOnClickListener(v->{
+            itemView.setTag(this);
+            listener.onClick(v);
+        });
     }
 }

@@ -5,3 +5,4 @@
 ## Implements DeleteAdd action
 ## Add RecyclerView Decoration
 ## delete item implement
+## implement custom RecyclerView onItemClickListener
