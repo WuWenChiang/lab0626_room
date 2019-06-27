@@ -24,8 +24,11 @@ public class BeverageRepository {
         new InsertAsyncTask(beverageDAO).execute(entity);
     }
 
+    public void delete(BeverageEntity entity){
+        new DeleteBeverageAsync(beverageDAO).execute(entity);
+    }
+
     public void deleteAll() {
         new DeleteAllBeverageAsyncTask(beverageDAO).execute();
     }
-
 }

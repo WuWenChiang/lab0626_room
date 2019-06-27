@@ -45,4 +45,8 @@ public class BeverageViewAdapter extends RecyclerView.Adapter<BeverageViewHolder
     public int getItemCount() {
         return (beverages != null) ? beverages.size() : 0;
     }
+
+    public BeverageEntity getBeverageAtPosition(int position) {
+        return beverages.get(position);
+    }
 }

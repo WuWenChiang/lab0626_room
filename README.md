@@ -3,3 +3,5 @@
 ## DB & Recycler view ready
 ## Add beverage feature complete
 ## Implements DeleteAdd action
+## Add RecyclerView Decoration
+## delete item implement

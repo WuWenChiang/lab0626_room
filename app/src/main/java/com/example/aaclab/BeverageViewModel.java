@@ -22,5 +22,8 @@ public class BeverageViewModel extends AndroidViewModel {
     public void insert(BeverageEntity entity){
         repository.insert(entity);
     }
+    public void delete(BeverageEntity entity){
+        repository.delete(entity);
+    }
     public void deleteAll() { repository.deleteAll(); }
 }
