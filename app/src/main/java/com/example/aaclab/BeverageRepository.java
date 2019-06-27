@@ -24,36 +24,8 @@ public class BeverageRepository {
         new InsertAsyncTask(beverageDAO).execute(entity);
     }
 
-    private static class InsertAsyncTask
-            extends AsyncTask<BeverageEntity, Void, Void> {
-        private BeverageDAO beverageDAO;
-
-        public InsertAsyncTask(BeverageDAO beverageDAO) {
-            this.beverageDAO = beverageDAO;
-        }
-
-        @Override
-        protected Void doInBackground(BeverageEntity... beverageEntities) {
-            beverageDAO.insertBeverage(beverageEntities[0]);
-            return null;
-        }
-    }
-
     public void deleteAll() {
         new DeleteAllBeverageAsyncTask(beverageDAO).execute();
     }
 
-    private static class DeleteAllBeverageAsyncTask extends AsyncTask<Void, Void, Void> {
-        private BeverageDAO beverageDAO;
-
-        public DeleteAllBeverageAsyncTask(BeverageDAO beverageDAO) {
-            this.beverageDAO = beverageDAO;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            beverageDAO.deleteAll();
-            return null;
-        }
-    }
 }
