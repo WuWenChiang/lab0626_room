@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#C0FFEE"
+    android:padding="24dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:id="@+id/textView1"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:background="#FFEEC0"
+        android:layout_height="wrap_content"
+        android:text="SampleText"/>
+</LinearLayout>

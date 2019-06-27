@@ -40,7 +40,7 @@ public class BeverageDAOTest {
                 insertBeverage(new BeverageEntity(1, "americano", "shot coffee with hot water"));
         database.beverageDAO().
                 insertBeverage(new BeverageEntity(2, "latte", "shot cofee with hot milk"));
-        List<BeverageEntity> beverages = database.beverageDAO().loadAllBeverage();
+        List<BeverageEntity> beverages = database.beverageDAO().loadAllBeverageDirect();
         for (BeverageEntity e : beverages) {
             Log.v(TAG, String.format("get an entity:%s\n", e));
         }
@@ -53,7 +53,7 @@ public class BeverageDAOTest {
         assertNotNull(database);
         Log.v(TAG, "test2, insert one record");
         database.beverageDAO().insertBeverage(new BeverageEntity("milk tea","earl grey with milk"));
-        List<BeverageEntity> total = database.beverageDAO().loadAllBeverage();
+        List<BeverageEntity> total = database.beverageDAO().loadAllBeverageDirect();
         assertThat(total.size(),is(1));
     }
 }
