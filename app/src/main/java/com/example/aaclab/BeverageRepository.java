@@ -24,6 +24,11 @@ public class BeverageRepository {
         new InsertAsyncTask(beverageDAO).execute(entity);
     }
 
+    public void updateBeverage(int id, String title, String detail) {
+        BeverageEntity entity = new BeverageEntity(id, title, detail);
+        new UpdateBeverageAsync(beverageDAO).execute(entity);
+    }
+
     public void delete(BeverageEntity entity){
         new DeleteBeverageAsync(beverageDAO).execute(entity);
     }

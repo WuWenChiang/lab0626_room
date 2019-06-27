@@ -24,6 +24,9 @@ public interface BeverageDAO {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateBeverage(BeverageEntity beverageEntity);
 
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void update(BeverageEntity... entities);
+
     @Delete
     void delete(BeverageEntity beverageEntity);
 

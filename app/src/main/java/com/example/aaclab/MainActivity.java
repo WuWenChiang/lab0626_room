@@ -16,10 +16,15 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.aaclab.InserActivity.ADD_DETAIL;
-import static com.example.aaclab.InserActivity.ADD_TITLE;
+import static com.example.aaclab.InsertActivity.ADD_DETAIL;
+import static com.example.aaclab.InsertActivity.ADD_TITLE;
+import static com.example.aaclab.ModifyActivity.MOD_DETAIL;
+import static com.example.aaclab.ModifyActivity.MOD_ID;
+import static com.example.aaclab.ModifyActivity.MOD_TITLE;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int ADD_ACTIVITY = 1001;
+    private static final int MOD_ACTIVITY = 1002;
     private BeverageViewModel mViewModel;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -38,10 +43,8 @@ public class MainActivity extends AppCompatActivity {
         delAllButton.setOnClickListener(v->delAllButtonCallback());
     }
 
-    private static final int ADD_ACTIVITY = 1001;
-
     private void addButtonCallback() {
-        Intent intent = new Intent(this,InserActivity.class);
+        Intent intent = new Intent(this, InsertActivity.class);
         startActivityForResult(intent,ADD_ACTIVITY);
     }
 
@@ -52,14 +55,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     @Nullable Intent data) {
-        switch (requestCode){
+        switch (requestCode) {
             case ADD_ACTIVITY:
-                if(resultCode==RESULT_OK) {
+                if (resultCode == RESULT_OK) {
                     Bundle bundle = data.getExtras();
                     String title = bundle.getString(ADD_TITLE);
                     String detail = bundle.getString(ADD_DETAIL);
                     BeverageEntity entity = new BeverageEntity(title, detail);
                     mViewModel.insert(entity);
+                } else {
+                    Toast.makeText(this, "not saved", Toast.LENGTH_LONG).show();
+                }
+                break;
+            case MOD_ACTIVITY:
+                if (resultCode == RESULT_OK) {
+                    Bundle bundle = data.getExtras();
+                    int id = bundle.getInt(MOD_ID);
+                    String title = bundle.getString(MOD_TITLE);
+                    String detail = bundle.getString(MOD_DETAIL);
+                    BeverageEntity entity = new BeverageEntity(title, detail);
+                    mViewModel.updateEntity(id, title, detail);
                 } else {
                     Toast.makeText(this, "not saved", Toast.LENGTH_LONG).show();
                 }
@@ -112,8 +127,14 @@ public class MainActivity extends AppCompatActivity {
         adapter.setmOnItemClickListener(v -> {
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
             int position = viewHolder.getAdapterPosition();
-            Toast.makeText(this, String.format("#%d is clicked", position),
-                    Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, String.format("#%d is clicked", position),
+            //        Toast.LENGTH_LONG).show();
+            BeverageEntity entity = adapter.getBeverageAtPosition(position);
+            Intent intent = new Intent(this, ModifyActivity.class);
+            intent.putExtra(MOD_ID, entity.getId());
+            intent.putExtra(MOD_TITLE, entity.getTitle());
+            intent.putExtra(MOD_DETAIL, entity.getDetail());
+            startActivityForResult(intent, MOD_ACTIVITY);
         });
     }
 }

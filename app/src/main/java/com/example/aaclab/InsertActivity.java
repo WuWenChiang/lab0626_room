@@ -10,7 +10,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class InserActivity extends AppCompatActivity {
+public class InsertActivity extends AppCompatActivity {
     public static final String ADD_TITLE = "beverage.add.title";
     public static final String ADD_DETAIL = "beverage.add.detail";
 
