@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
@@ -67,7 +68,11 @@ public class MainActivity extends AppCompatActivity {
     private void initBeverageAdapter() {
         final BeverageViewAdapter adapter = new BeverageViewAdapter(this);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        DividerItemDecoration decoration = new DividerItemDecoration(this,
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(decoration);
         mViewModel = ViewModelProviders.of(this).get(BeverageViewModel.class);
         mViewModel.getAllBeverages().observe(this,
                 beverageEntities -> adapter.setBeverages(beverageEntities));
