@@ -13,6 +13,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.aaclab.com.example.aaclab.db.BeverageEntity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

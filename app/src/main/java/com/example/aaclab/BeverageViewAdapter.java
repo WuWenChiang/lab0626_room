@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.aaclab.com.example.aaclab.db.BeverageEntity;
+
 import java.util.List;
 
 public class BeverageViewAdapter extends RecyclerView.Adapter<BeverageViewHolder> {

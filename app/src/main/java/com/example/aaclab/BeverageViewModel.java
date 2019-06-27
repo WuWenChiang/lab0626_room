@@ -5,6 +5,9 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
+import com.example.aaclab.com.example.aaclab.db.BeverageEntity;
+import com.example.aaclab.com.example.aaclab.db.BeverageRepository;
+
 import java.util.List;
 
 public class BeverageViewModel extends AndroidViewModel {

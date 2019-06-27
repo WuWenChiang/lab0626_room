@@ -5,6 +5,9 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
+import com.example.aaclab.com.example.aaclab.db.BeverageDatabase;
+import com.example.aaclab.com.example.aaclab.db.BeverageEntity;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,9 @@
-package com.example.aaclab;
+package com.example.aaclab.com.example.aaclab.async;
 
 import android.os.AsyncTask;
+
+import com.example.aaclab.com.example.aaclab.db.BeverageDAO;
+import com.example.aaclab.com.example.aaclab.db.BeverageEntity;
 
 public class InsertAsyncTask
         extends AsyncTask<BeverageEntity, Void, Void> {

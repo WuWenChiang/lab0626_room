@@ -1,4 +1,4 @@
-package com.example.aaclab;
+package com.example.aaclab.com.example.aaclab.db;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;

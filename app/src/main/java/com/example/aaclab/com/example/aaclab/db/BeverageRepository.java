@@ -1,8 +1,15 @@
-package com.example.aaclab;
+package com.example.aaclab.com.example.aaclab.db;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
-import android.os.AsyncTask;
+
+import com.example.aaclab.com.example.aaclab.async.DeleteAllBeverageAsyncTask;
+import com.example.aaclab.com.example.aaclab.async.DeleteBeverageAsync;
+import com.example.aaclab.com.example.aaclab.async.InsertAsyncTask;
+import com.example.aaclab.com.example.aaclab.async.UpdateBeverageAsync;
+import com.example.aaclab.com.example.aaclab.db.BeverageDAO;
+import com.example.aaclab.com.example.aaclab.db.BeverageDatabase;
+import com.example.aaclab.com.example.aaclab.db.BeverageEntity;
 
 import java.util.List;
 
